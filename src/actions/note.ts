@@ -62,7 +62,7 @@ export const AskAIAboutNoteAction = async (
   });
   if (notes.length === 0) return "你没有笔记";
   const formattedNotes = notes
-    .map((note) => {
+    .map((note:any) => {
       return`
       text:${note.text}
       CreateAt:${note.createdAt}
