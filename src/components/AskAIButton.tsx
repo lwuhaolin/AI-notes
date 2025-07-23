@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 import { Textarea } from "./ui/textarea";
 import { ArrowUpIcon } from "lucide-react";
 import { AskAIAboutNoteAction } from "@/actions/note";
-// import '@/styles/ai-response.css';
+import '@/styles/ai-response.css';
 type Props = {
   user: User | null;
 };
@@ -70,9 +70,9 @@ function AskAIButton({ user }: Props) {
     setQuestionText("");
     setTimeout(srcollToButton, 100);
     startTransition(async () => {
-      const response =await AskAIAboutNoteAction(newQuestions, responses);
+      const response = await AskAIAboutNoteAction(newQuestions, responses);
       setRsponses((prev) => [...prev, response]);
-      setTimeout(srcollToButton,100)
+      setTimeout(srcollToButton, 100)
     });
   };
 
@@ -97,7 +97,7 @@ function AskAIButton({ user }: Props) {
           <Button variant="secondary">Ask AI</Button>
         </DialogTrigger>
         <DialogContent
-          className="scroll flex h-[85vh] max-w-4xl flex-col overflow-y-auto"
+          className="scroll flex h-[85vh] w-[115vw] flex-col"
           ref={contentRef}
         >
           <DialogHeader>
@@ -106,7 +106,7 @@ function AskAIButton({ user }: Props) {
               Out AI Can answer questions about all of your notes
             </DialogDescription>
           </DialogHeader>
-          <div className="mt-4 flex flex-col gap-8">
+          <div className="mt-4 flex flex-col gap-8 overflow-y-auto">
             {questions.map((question, index) => (
               <Fragment key={index}>
                 <p className="bg-muted text-muted-foreground ml-auto max-w-[60%] rounded-md px-2 py-1 text-sm">
@@ -120,7 +120,11 @@ function AskAIButton({ user }: Props) {
                 )}
               </Fragment>
             ))}
-            {isPending && <p className="animate-spin text-sm">思考中...</p>}
+            {isPending && <p className="text-sm">思考中<span className="loading-dots">
+              <span>.</span>
+              <span>.</span>
+              <span>.</span>
+            </span></p>}
           </div>
           <div
             className="mt-auto flex cursor-text flex-col rounded-lg border p-4"
@@ -136,7 +140,6 @@ function AskAIButton({ user }: Props) {
               }}
               rows={1}
               onInput={headleInput}
-              
               onKeyDown={headleKeydown}
               value={questionText}
               onChange={(e) => setQuestionText(e.target.value)}

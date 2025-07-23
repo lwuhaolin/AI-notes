@@ -155,3 +155,7 @@
 .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: hsl(215, 44%, 8%);
 }
+
+button{
+  cursor: pointer;
+}
