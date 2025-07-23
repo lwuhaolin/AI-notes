@@ -5,6 +5,12 @@ import { prisma } from "@/db/prisma";
 import { headleError } from "@/lib/utils";
 import openai from "@/openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+type note = {
+  text: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
 export const createNoteAction = async (NoteId: string) => {
   try {
     const user = await getUser();
@@ -62,7 +68,7 @@ export const AskAIAboutNoteAction = async (
   });
   if (notes.length === 0) return "你没有笔记";
   const formattedNotes = notes
-    .map((note:any) => {
+    .map((note:note) => {
       return`
       text:${note.text}
       CreateAt:${note.createdAt}
