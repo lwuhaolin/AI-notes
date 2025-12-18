@@ -298,7 +298,7 @@
 ## 🔗 相关链接
 
 - **项目仓库**: [GitHub - lwuhaolin/AI-notes](https://github.com/lwuhaolin/AI-notes)
-- **在线演示**: [待部署]
+- **在线演示**: 即将上线
 - **问题反馈**: [GitHub Issues](https://github.com/lwuhaolin/AI-notes/issues)
 
 ---

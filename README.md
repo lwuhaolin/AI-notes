@@ -71,7 +71,7 @@ NEXT_PUBLIC_SUPABASE_URL="https://..."
 NEXT_PUBLIC_SUPABASE_ANON_KEY="..."
 
 # DeepSeek API 密钥
-AI_API_KEY="sk-..."
+AI_API_KEY="your-deepseek-api-key"
 ```
 
 ### 4. 初始化数据库
